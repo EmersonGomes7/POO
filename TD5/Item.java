@@ -39,7 +39,21 @@ public class Item {
 	}
 	
 	public double calculoValorTotal() {	
-		return getValorUnitario()*getQuantidade();
+		 try {
+	            int quantidade = getQuantidade();
+
+	            if (quantidade <= 0 || getValorUnitario() <= 0) {
+	                System.err.println("Erro: A quantidade e o valor unitário devem ser positivos.");
+	                return -1;
+	            }
+
+	            return getValorUnitario() * quantidade;
+	        } catch (NumberFormatException e) {
+	            System.err.println("Erro, quantidade errada .");
+	        } catch (Exception e) {
+	            System.err.println("Erro: " + e.getMessage());
+	        }
+	        return -1;
+	    }
 	}
-	
-}
+
