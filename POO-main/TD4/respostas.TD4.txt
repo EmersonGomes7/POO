@@ -1,0 +1,112 @@
+1)a string1 é inicializada com "abc" e segunda sem caracter inicialmente. Depois 
+a string 1 chama um método que converte a própria string para um vetor de caracteres chamado letters. Após isso, é atribuido valor verdadeiro 
+a uma variável do tipo booleana chamada isFist. Em seguida, ocorre um laço de repetição do tipo "for each" que percorre cada caractere do vetor, em que 
+faz uma condicional simplificada para verificar cada caractere por vez. nessa condicional, a primeira iteração faz a concatenação do primeiro caractere do 
+vetor letters para a string2 já convertendo a letra da tabela ASC ao seu respectivo número inteiro,  pois a variável auxiliar  isFisrs está como verdadeira e logo após da condicional. é atribuida 
+valor lógico falso para essa variável. Ou seja, todas as próximas iterações irá concatenar um ponto antes do número inteiro. no final, é feita a impressão da 
+string2 ja concatenada. Em resumo, esse algoritmo faz uma conversão de caracteres de uma string para um vetor de inteiros e mostra o resultado da conversão.
+
+2) o encapsulamento é aplicado declarando o modificador de acesso privado ao atributo matrícula e ao método getBonificação. Além disso, usa-se os métodos getters e setters no modo 
+público para que se possa modificar tanto a matricula indiretamente, quanto o método de bonificação. 
+A herança é aplicado na parte em que aparece a palavra extends, no qual a classe gerente herda os atributos e métodos da classe colaborador.
+O polimorfismo pode-se verificar que está presente na classe controleBonificação, pois o método resgistrarBonificação recebe uma instância
+do tipo colaborador. Ou seja, antes do objeto ser enviado como parâmetro, possivelmente no método principal foi definido que o objeto c é do tipo gerente ou 
+do tipo colaborador. Logo, por haver uma hierarquia entre a classe gerente e colaborador, o objeto c pode ter essas duas formas polimórficas.
+Já a sobrescrita é aplicada na classe gerente, em que o métodogetBonificação com a mesma assinatura é reescrito novamente e em seu bloco de comandos é 
+possível editar a implementação para calcular 20% do salário ao invés dos 15% que foi feita na superclasse Colaborador.
+
+3)
+package q3.poo;
+import java.lang.String;
+public class Lembrete {
+	private String descricao;
+	private int dia;
+	private int mes;
+	private int ano;
+	
+	public Lembrete() {
+		this.descricao="";
+		this.ano=0000;
+		this.mes=00;
+		this.dia=00;
+	}
+	public Lembrete(String descricao, int dia, int mes, int ano) {
+		setDescricao(descricao);
+		setDia(dia);
+		setMes(mes);
+		setAno(ano);
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public int getDia() {
+		return dia;
+	}
+	public void setDia(int dia) {
+		if(dia<0 || ano>31)
+			System.out.println("dia armazenado incorretamente!");
+		this.dia = dia;
+	}
+	public int getMes() {
+		return mes;
+	}
+	public void setMes(int mes) {
+		if(mes<0 || mes>12)
+			System.out.println("mes armazenado incorretamente!");
+		this.mes = mes;
+	}
+	public int getAno() {
+		return ano;
+	}
+	public void setAno(int ano) {
+		if(ano<0 || ano>2023)
+			System.out.println("ano armazenado incorretamente!");
+		this.ano = ano;
+	}
+	
+	public boolean equals(Lembrete lembrete) {
+		if(this.dia==lembrete.getDia() && this.mes==lembrete.getMes() && this.ano==lembrete.getAno() && this.descricao.equals(lembrete.getDescricao())){
+			return true;
+		}else
+			return false;
+	}
+	public String toString() {
+	    String diaFormato;
+	    String mesFormato;
+	    String anoFormato;
+	    	if(this.dia<10) { 
+	    		diaFormato="0" + this.dia;
+	    	}else{
+	    		diaFormato="" + this.dia;
+	    	}
+	    	if(this.mes<10) {
+	    		mesFormato="0" + this.mes;
+	    	}else {
+	    		mesFormato="" + this.mes;
+	    	}
+	    	if(this.ano<1000) {
+	    		anoFormato="0" + this.ano;
+	    	}else {
+	    		anoFormato="" + this.ano;
+	    	}
+	    return this.descricao + " - " + diaFormato + "/" + mesFormato + "/" + anoFormato;
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
